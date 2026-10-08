@@ -1,0 +1,21 @@
+{
+  "name": "yonko-portfolio",
+  "version": "1.0.0",
+  "description": "Creative Director & Architecture Portfolio with Holographic Edge Stickers and Ship Cargo Shutter Preloader",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "serve": "node server.js",
+    "preview": "node server.js"
+  },
+  "keywords": [
+    "portfolio",
+    "ui-ux",
+    "creative-director",
+    "holographic",
+    "preloader"
+  ],
+  "author": "",
+  "license": "ISC"
+}
