@@ -747,19 +747,67 @@
       background: #080808; border: 1px solid var(--border);
       border-radius: 36px; padding: 90px 48px; text-align: center; margin: 40px auto;
     }
-    .contact-links-grid {
-      display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 40px;
+    .contact-icons-row {
+      display: flex; gap: 18px; justify-content: center; align-items: center; flex-wrap: wrap; margin-top: 40px;
     }
-    .contact-item {
-      padding: 18px 34px; border-radius: 100px;
-      background: #000; border: 1px solid var(--border-light);
-      color: #FFF; font-size: 13px; font-weight: 800; text-decoration: none;
-      text-transform: uppercase; letter-spacing: 1.5px;
-      transition: all .25s ease; display: inline-flex; align-items: center; gap: 10px;
+    .contact-icon-btn {
+      position: relative;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex; align-items: center; justify-content: center;
+      color: #FFF; text-decoration: none;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
-    .contact-item:hover {
-      background: #FFF; color: #000; border-color: #FFF;
-      transform: translateY(-3px); box-shadow: 0 10px 25px rgba(255, 255, 255, 0.2);
+    .contact-icon-btn svg { width: 22px; height: 22px; transition: transform 0.3s ease; }
+    .contact-icon-btn:hover {
+      transform: translateY(-4px) scale(1.08);
+    }
+    .contact-icon-btn:hover svg {
+      transform: scale(1.1);
+    }
+    .contact-icon-btn.phone:hover {
+      background: rgba(34, 197, 94, 0.12);
+      border-color: #22C55E;
+      color: #22C55E;
+      box-shadow: 0 10px 30px rgba(34, 197, 94, 0.35);
+    }
+    .contact-icon-btn.mail:hover {
+      background: rgba(255, 255, 255, 0.14);
+      border-color: #FFFFFF;
+      color: #FFFFFF;
+      box-shadow: 0 10px 30px rgba(255, 255, 255, 0.35);
+    }
+    .contact-icon-btn.behance:hover {
+      background: rgba(0, 87, 255, 0.15);
+      border-color: #0057FF;
+      color: #0057FF;
+      box-shadow: 0 10px 30px rgba(0, 87, 255, 0.45);
+    }
+    .contact-icon-btn.linkedin:hover {
+      background: rgba(10, 102, 194, 0.15);
+      border-color: #0A66C2;
+      color: #0A66C2;
+      box-shadow: 0 10px 30px rgba(10, 102, 194, 0.45);
+    }
+    .contact-icon-btn::after {
+      content: attr(data-tooltip);
+      position: absolute; bottom: calc(100% + 12px); left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      background: rgba(18, 18, 22, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      backdrop-filter: blur(12px);
+      color: #FFF; font-size: 11px; font-weight: 700;
+      padding: 6px 14px; border-radius: 8px;
+      white-space: nowrap; pointer-events: none;
+      opacity: 0; transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+      letter-spacing: 0.5px;
+      z-index: 10;
+    }
+    .contact-icon-btn:hover::after {
+      opacity: 1; transform: translateX(-50%) translateY(0);
     }
 
     /* ── ENHANCED BRUTALIST EDITORIAL FOOTER ── */
@@ -2406,18 +2454,34 @@
     <h2 class="title-h2 display-font">Let’s build something<br/>uncompromising.</h2>
     <p class="subtitle-p" style="margin: 0 auto;">Open for UI/UX projects, QA testing audits, photography, and video commissions.</p>
 
-    <div class="contact-links-grid">
-      <a class="contact-item" href="tel:+917984323507" style="border-color: #22C55E; color: #FFF; background: #0A2416; box-shadow: 0 4px 20px rgba(34,197,94,0.25);">
-        +91 79843 23507 ↗
+    <div class="contact-icons-row">
+      <!-- Phone -->
+      <a class="contact-icon-btn phone" href="tel:+917984323507" data-tooltip="+91 79843 23507" aria-label="Call +91 79843 23507">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+        </svg>
       </a>
-      <a class="contact-item" href="mailto:dhandhikiyachirag777@gmail.com" style="border-color: #FFFFFF; color: #000; background: #FFFFFF; box-shadow: 0 4px 20px rgba(255,255,255,0.25);">
-        dhandhikiyachirag777@gmail.com ↗
+
+      <!-- Email -->
+      <a class="contact-icon-btn mail" href="mailto:dhandhikiyachirag777@gmail.com" data-tooltip="dhandhikiyachirag777@gmail.com" aria-label="Email dhandhikiyachirag777@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect width="20" height="16" x="2" y="4" rx="3"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
       </a>
-      <a class="contact-item" href="https://www.behance.net/chiragdhandhu" target="_blank" rel="noopener noreferrer" style="border-color: #0057FF; color: #FFF; background: #0057FF; box-shadow: 0 4px 20px rgba(0,87,255,0.4);">
-        Behance: chiragdhandhu ↗
+
+      <!-- Behance -->
+      <a class="contact-icon-btn behance" href="https://www.behance.net/chiragdhandhu" target="_blank" rel="noopener noreferrer" data-tooltip="Behance: chiragdhandhu" aria-label="Behance Profile">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7.65 11.53c.96-.34 1.57-1.15 1.57-2.19 0-2.03-1.61-2.74-3.52-2.74H0v10.8h5.79c2.19 0 3.79-.97 3.79-3.07 0-1.42-.77-2.43-1.93-2.8zm-4.9-3.32h2.57c1.08 0 1.74.45 1.74 1.34 0 .93-.72 1.39-1.74 1.39H2.75V8.21zm2.74 7.58H2.75v-3.21h2.74c1.17 0 1.94.51 1.94 1.59 0 1.13-.77 1.62-1.94 1.62zm11.23-5.91c-3.18 0-5.18 2.22-5.18 5.48 0 3.32 2.05 5.43 5.37 5.43 2.5 0 4.19-1.34 4.79-3.41h-2.3c-.34.84-1.25 1.41-2.42 1.41-1.61 0-2.61-.95-2.74-2.48h7.57c.07-.3.1-.64.1-.98 0-3.18-1.99-5.45-5.19-5.45zm-2.47 4.14c.2-1.38 1.05-2.22 2.4-2.22 1.32 0 2.19.84 2.37 2.22h-4.77zM14.2 6.09h5.18v1.44H14.2V6.09z"/>
+        </svg>
       </a>
-      <a class="contact-item" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-        LinkedIn ↗
+
+      <!-- LinkedIn -->
+      <a class="contact-icon-btn linkedin" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" data-tooltip="LinkedIn" aria-label="LinkedIn Profile">
+        <svg viewBox="0 0 24 24" fill="currentColor">
+          <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+        </svg>
       </a>
     </div>
   </div>
