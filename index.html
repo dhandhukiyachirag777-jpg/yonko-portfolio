@@ -1206,21 +1206,84 @@
       .section-edge-anchor {
         overflow: hidden;
         pointer-events: none;
+        z-index: 0 !important;
       }
       .holographic-edge-sticker {
         pointer-events: none;
-        opacity: 0.75;
+        opacity: 0.65;
+        z-index: 0 !important;
       }
       .sticker-inner-box {
-        width: clamp(75px, 20vw, 105px);
+        width: clamp(60px, 16vw, 85px);
+        filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.6));
       }
       .holographic-edge-sticker.sticker-left {
-        left: -10px;
-        transform: translate(0, 0) rotate(var(--rot, -6deg)) !important;
+        left: 0;
+        transform: translate(-45%, 0) rotate(var(--rot, -6deg)) !important;
       }
       .holographic-edge-sticker.sticker-right {
-        right: -10px;
-        transform: translate(0, 0) rotate(var(--rot, 6deg)) !important;
+        right: 0;
+        transform: translate(45%, 0) rotate(var(--rot, 6deg)) !important;
+      }
+
+      /* Guaranteed Text & Card Layering: All content, headers, cards, and buttons sit strictly ABOVE stickers */
+      .label-badge,
+      .title-h2,
+      .subtitle-p,
+      .case-studies-list,
+      .case-item,
+      .behance-profile-strip,
+      .projects-filter-bar,
+      .behance-grid,
+      .behance-card,
+      .about-wrap,
+      .about-info,
+      .about-image-card,
+      .philosophy-grid,
+      .philo-card,
+      .capabilities-list,
+      .cap-item,
+      .ai-statement-banner,
+      .ai-marquee-wrapper,
+      .ai-methods-grid,
+      .ai-method-card,
+      .vault-wrap,
+      .vault-grid,
+      .vault-card,
+      .contact-card {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* Mobile Gutters: Specific sticker positions away from all headings & text */
+      #projects .holographic-edge-sticker.sticker-left {
+        top: 360px !important;
+      }
+      #projects .holographic-edge-sticker.sticker-right {
+        top: 860px !important;
+      }
+      #about .holographic-edge-sticker.sticker-right {
+        top: auto !important;
+        bottom: 20px !important;
+      }
+      #philosophy .holographic-edge-sticker.sticker-left {
+        top: auto !important;
+        bottom: 30px !important;
+      }
+      #services .holographic-edge-sticker.sticker-left {
+        top: 240px !important;
+      }
+      #services .holographic-edge-sticker.sticker-right {
+        top: auto !important;
+        bottom: 30px !important;
+      }
+      #ai-stack .holographic-edge-sticker.sticker-right {
+        top: auto !important;
+        bottom: 30px !important;
+      }
+      #vault .holographic-edge-sticker.sticker-left {
+        top: auto !important;
+        bottom: 40px !important;
       }
 
       /* Flagship Case Studies */
